@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'portifolio.apps.PortifolioConfig',
+    'cloudinary_storage',
+    'cloudinary',
 
     'ckeditor',
     'ckeditor_uploader',
@@ -98,18 +100,18 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    #{
+        #'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    #},
+    #{
+        #'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    #},
+    #{
+        #'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    #},
+    #{
+        #'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    #},
 ]
 
 
@@ -147,14 +149,25 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "snipherblog@gmail.com"
 EMAIL_HOST_PASSWORD = 'jydqhivfgiamdcjs'
 
+
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
         'height': 300,
-        'width': '100%'
-    }
+        'width': '100%',
+    },
 }
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'snipher',
+    'API_KEY': '421162441822348',
+    'API_SECRET': 'gpP7UebOBTHV99kXyBfPDtW2fmk'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

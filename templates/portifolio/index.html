@@ -67,12 +67,18 @@
                                     <li class="nav-item active">
                                         <a class="page-scroll" href="{% url 'posts' %}">Blog</a>
                                     </li>
-                                    <li class="nav-item active">
-                                        <a class="page-scroll" href="{% url 'profile' %}">Account</a>
-                                    </li>
-                                    <li class="nav-item active">
-                                        <a class="page-scroll" href="{% url 'register' %}">Register</a>
-                                    </li>
+                                    {% if request.user.is_authenticated %}
+                                        <li class="nav-item active">
+                                            <a class="page-scroll" href="{% url 'account' %}">Account</a>
+                                        </li>
+                                        <li class="nav-item active">
+                                            <a class="page-scroll" href="{% url 'logout' %}">Logout</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="nav-item active">
+                                            <a class="page-scroll" href="{% url 'login' %}">Login</a>
+                                        </li>
+                                    {% endif %}
                                     <li class="nav-item active">
                                         <a class="page-scroll" href="#contact">Contact</a>
                                     </li>
@@ -141,23 +147,23 @@
                             <div class="header-social-icon">
                                 <ul>
                                     <li>
-                                        <a href="#">
-                                            <i class="lni-facebook-filled"></i>
+                                        <a target="_blank" href="https://github.com/snipher-marube">
+                                            <i class="lni-github-original"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a target="_blank" href="https://twitter.com/SnipherMarube">
                                             <i class="lni-twitter-original"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a target="_blank" href="https://www.linkedin.com/in/snipher-marube-956159188">
                                             <i class="lni-linkedin-original"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <i class="lni-behance-original"></i>
+                                        <a target="_blank" href="https://www.youtube.com/channel/UC_y320qQnVT9XhRsDiXAEfA">
+                                            <i class="lni-youtube"></i>
                                         </a>
                                     </li>
                                 </ul>
@@ -409,6 +415,7 @@
     <!--====== CALL TO ACTION PART ENDS ======-->
 
     <!--====== WORK PART START ======-->
+    <!---comented rwork
 
     <section id="work" class="work-area pt-125 pb-130">
         <div class="container">
@@ -417,9 +424,9 @@
                     <div class="section-title pb-25">
                         <h2 class="title">My Recent Works</h2>
                         <p>Nunc id dui at sapien faucibus fermentum ut vel diam. Nullam tempus, nunc id efficitur sagittis, urna est ultricies eros, ac porta sem turpis quis leo.</p>
-                    </div> <!-- section title -->
+                    </div>
                 </div>
-            </div> <!-- row -->
+            </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-work text-center mt-30">
@@ -435,7 +442,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div> <!-- single work -->
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-work text-center mt-30">
@@ -451,7 +458,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div> <!-- single work -->
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-work text-center mt-30">
@@ -467,7 +474,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div> <!-- single work -->
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-work text-center mt-30">
@@ -483,7 +490,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div> <!-- single work -->
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-work text-center mt-30">
@@ -499,7 +506,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div> <!-- single work -->
+                    </div> <singlr work comment>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-work text-center mt-30">
@@ -515,22 +522,20 @@
                                 </ul>
                             </div>
                         </div>
-                    </div> <!-- single work -->
+                    </div>
                 </div>
-            </div> <!-- row -->
+            </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="work-more text-center mt-50">
                         <a class="main-btn" href="#">more works</a>
-                    </div> <!-- work more -->
+                    </div>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            </div>
+        </div>
     </section>
 
-    <!--====== WORK PART ENDS ======-->
 
-    <!--====== PRICING PART START ======-->
 
     <section id="pricing" class="pricing-area gray-bg pt-125 pb-130">
         <div class="container">
@@ -539,9 +544,9 @@
                     <div class="section-title text-center pb-25">
                         <h2 class="title">My Pricing Plans</h2>
                         <p>Nunc id dui at sapien faucibus fermentum ut vel diam. Nullam tempus, nunc id efficitur sagittis, urna est ultricies eros, ac porta sem turpis quis leo.</p>
-                    </div> <!-- section title -->
+                    </div>
                 </div>
-            </div> <!-- row -->
+            </div>
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-8 col-sm-9">
                     <div class="single-pricing text-center mt-30">
@@ -567,7 +572,7 @@
                                 <a class="main-btn" href="#contact">get quote</a>
                             </div>
                         </div>
-                    </div> <!-- single pricing -->
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-8 col-sm-9">
                     <div class="single-pricing active text-center mt-30">
@@ -593,7 +598,7 @@
                                 <a class="main-btn" href="#contact">get quote</a>
                             </div>
                         </div>
-                    </div> <!-- single pricing -->
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-8 col-sm-9">
                     <div class="single-pricing text-center mt-30">
@@ -619,13 +624,15 @@
                                 <a class="main-btn" href="#contact">get quote</a>
                             </div>
                         </div>
-                    </div> <!-- single pricing -->
+                    </div>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            </div>
+        </div>
     </section>
 
-    <!--====== PRICING PART ENDS ======-->
+
+
+    -->
 
     <!--====== BLOG PART START ======-->
 
@@ -639,40 +646,26 @@
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-8 col-sm-9">
-                    <div class="single-blog mt-30">
-                        <div class="blog-image">
-                            <img src="{% static 'images/blog/b-1.jpg' %}" alt="Blog">
-                        </div>
-                        <div class="blog-content">
-                            <h4 class="blog-title"><a href="#">Hired Releases 2023 Brand Health.</a></h4>
-                            <span>July 26, 2022</span>
-                        </div>
-                    </div> <!-- single blog -->
+            <section class="s1">
+                <div class="main-container">
+                    <h3 style="text-align: center;">My Blog Posts</h3>
+
+                    <div class="post-wrapper">
+                        {% for post in posts %}
+                            <div>
+                                <div class="post">
+                                    <img class="thumbnail" src="{{post.thumbnail.url}}">
+                                    <div class="post-preview">
+                                        <h6 class="post-title">{{post.headline}}</h6>
+                                        <p class="post-intro">{{post.sub_headline}}</p>
+                                        <a href="{%  url 'post' post.slug %}">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
-                <div class="col-lg-4 col-md-8 col-sm-9">
-                    <div class="single-blog mt-30">
-                        <div class="blog-image">
-                            <img src="{% static 'images/blog/b-2.jpg' %}" alt="Blog">
-                        </div>
-                        <div class="blog-content">
-                            <h4 class="blog-title"><a href="#">Hired Releases 2023 Brand Health.</a></h4>
-                            <span>July 26, 2022</span>
-                        </div>
-                    </div> <!-- single blog -->
-                </div>
-                <div class="col-lg-4 col-md-8 col-sm-9">
-                    <div class="single-blog mt-30">
-                        <div class="blog-image">
-                            <img src="{% static 'images/blog/b-3.jpg' %}" alt="Blog">
-                        </div>
-                        <div class="blog-content">
-                            <h4 class="blog-title"><a href="#">Hired Releases 2023 Brand Health.</a></h4>
-                            <span>July 26, 2022</span>
-                        </div>
-                    </div> <!-- single blog -->
-                </div>
+            </section>
             </div> <!-- row -->
             <div class="row">
                 <div class="col-lg-12">
@@ -706,7 +699,7 @@
                         </div>
                         <div class="contact-content">
                             <h6 class="contact-title">Address</h6>
-                            <p>123 Stree New York City , United States Of America 750</p>
+                            <p>80 Enterprise street , Nairobi,  Kenya wine area</p>
                         </div>
                     </div> <!-- contact box -->
                 </div>
@@ -717,8 +710,8 @@
                         </div>
                         <div class="contact-content">
                             <h6 class="contact-title">Phone</h6>
-                            <p>+931 2222 5555</p>
-                            <p>+547 5554 6663</p>
+                            <p>+254 7983 93148</p>
+                            <p>+254 7394 488644</p>
                         </div>
                     </div> <!-- contact box -->
                 </div>
@@ -729,8 +722,8 @@
                         </div>
                         <div class="contact-content">
                             <h6 class="contact-title">Email</h6>
-                            <p>support@yourmail.com</p>
-                            <p>info@helpline.com</p>
+                            <p>snipherdev@gmail.com</p>
+                            <p>sniphermarube@gmail.com</p>
                         </div>
                     </div> <!-- contact box -->
                 </div>
@@ -738,19 +731,23 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="contact-form pt-30">
-                        <form id="contact-form" action="">
+                        <form id="contact-form" method="POST" action="{% url 'send_email' %}">
+                            {% csrf_token %}
                             <div class="single-form">
-                                <input type="text" name="name" placeholder="Name">
+                                <input  required class="input-field" type="text" name="name" placeholder="Name">
                             </div> <!-- single form -->
                             <div class="single-form">
-                                <input type="email" name="email" placeholder="Email">
+                                <input  required class="input-field" type="email" name="email" placeholder="Email">
                             </div> <!-- single form -->
                             <div class="single-form">
-                                <textarea name="message" placeholder="Message"></textarea>
+                                <input  required class="input-field" type="text" name="subject" placeholder="subject">
+                            </div> <!-- single form -->
+                            <div class="single-form">
+                                <textarea   required class="input-field" name="message" placeholder="Message"></textarea>
                             </div> <!-- single form -->
                             <p class="form-message"></p>
                             <div class="single-form">
-                                <button class="main-btn" type="submit">Send Message</button>
+                                <button class="main-btn" type="submit" value="send" >Send Message</button>
                             </div> <!-- single form -->
                         </form>
                     </div> <!-- contact form -->
@@ -781,10 +778,10 @@
                             </a>
                             <p class="mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci- didunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exe- rcitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             <ul>
-                                <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                                <li><a href="#"><i class="lni-twitter-original"></i></a></li>
-                                <li><a href="#"><i class="lni-pinterest"></i></a></li>
-                                <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
+                                <li><a target="_blank" href="https://github.com/snipher-marube"><i class="lni-github-original"></i></a></li>
+                                <li><a target="_blank" href="https://twitter.com/SnipherMarube"><i class="lni-twitter-original"></i></a></li>
+                                <li><a target="_blank" href="https://www.youtube.com/channel/UC_y320qQnVT9XhRsDiXAEfA"><i class="lni-youtube"></i></a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/in/snipher-marube-956159188"><i class="lni-linkedin-original"></i></a></li>
                             </ul>
                         </div> <!-- footer content -->
                     </div>

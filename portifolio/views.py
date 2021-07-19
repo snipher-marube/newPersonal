@@ -19,7 +19,7 @@ from .models import *
 # Create your views here.
 
 def home(request):
-    posts = Post.objects.filter(active=True, featured=True)[0:3]
+    posts = Post.objects.filter(active=True, featured=True)[0:6]
 
     context = {'posts':posts}
     return render(request, 'portifolio/index.html', context)
@@ -60,8 +60,7 @@ def post(request, slug):
     context = {'post':post}
     return render(request, 'portifolio/post.html', context)
 
-def profile(request):
-    return render(request, 'portifolio/profile.html')
+
 
 #CRUD VIEWS
 @admin_only
@@ -121,13 +120,13 @@ def sendEmail(request):
             request.POST['subject'],
             template,
             settings.EMAIL_HOST_USER,
-            ['snipherdev@gmail.com']
+            ['snipherblog@gmail.com']
         )
 
         email.fail_silently=False
         email.send()
 
-    return render(request, 'email_sent.html')
+    return render(request, 'portifolio/email_sent.html')
 
 def loginPage(request):
     if request.user.is_authenticated:

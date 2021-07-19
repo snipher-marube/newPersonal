@@ -5,24 +5,28 @@ from django.contrib.auth.models import User
 
 from .models import Post, Profile
 
+
 class CustomUserCreationForm(UserCreationForm):
+
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email', 'password1', 'password2']
 
 class PostForm(ModelForm):
+
     class Meta:
         model = Post
         fields = '__all__'
 
         widgets = {
-            'tags': forms.CheckboxSelectMultiple(),
+            'tags':forms.CheckboxSelectMultiple(),
         }
 
 class UserForm(ModelForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email']
+
 
 class ProfileForm(ModelForm):
     class Meta:

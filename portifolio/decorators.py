@@ -7,6 +7,6 @@ def admin_only(view_func):
 		if user.is_authenticated and user.is_superuser:
 			return view_func(request, *args, **kwargs)
 		else:
-			return HttpResponse('You are not authorized to view this page. please create an account to access')
-			
+			return HttpResponse('You are not authorized to view this page')
+
 	return wrapper_function
