@@ -8,6 +8,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('portifolio.urls')),
+    path('', include('newsletters.urls')),
 
     path('ckeditor/', include('ckeditor_uploader.urls')),
 

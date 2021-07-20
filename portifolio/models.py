@@ -76,3 +76,4 @@ class PostComment(models.Model):
     def created_dynamic(self):
         now = timezone.now()
         return now
+

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'portifolio.apps.PortifolioConfig',
+    'newsletters',
     'cloudinary_storage',
     'cloudinary',
 
@@ -166,8 +167,12 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': 'gpP7UebOBTHV99kXyBfPDtW2fmk'
 }
 
+
+
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+FROM_EMAIL = 'snipherdev@gmail.com'
+SENDGRID_API_KEY = os.environ.get('SENDI_GRID_API_key')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
