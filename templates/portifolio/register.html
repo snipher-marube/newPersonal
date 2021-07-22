@@ -2,47 +2,93 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
-    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
 
-<style type="text/css">
-	
-</style>
 
-<section id="login-page-wrapper">
-	<div id="login-form-wrapper">
-		{% if messages %}
-			{% for message in messages %}
-				{% if message.tags == 'success' %}
-					<div class="alert alert-success" role="alert">
-						<span>{{message}}</span>					
-					</div>
-				{% elif message.tags == 'error' %}
-					<div class="alert alert-danger" role="alert">
-						<span>{{message}}</span>					
-					</div>
-				{% endif %}
-			{% endfor %}
-		{% endif %}
+<!--
 
-		<h3 style="text-align: center">Register Account</h3>
-		<hr>
-		<form method="POST" action="?next={{ request.META.HTTP_REFERER }}">
-			{% csrf_token %}
-			{{form|crispy}}
-			<input class="btn btn-primary btn-lg btn-block" type="submit" value="Login">
-		</form>
+-->
+<section style="background-color: #999999;" >
+    <div class="linter" >
 
-		<br>
-		<p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
-	</div>
+        <div class="container-login100">
+            <div class="login100-more" style="background-image:url('/static/images/bg-01.jpg')"></div>
+            <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+                <div id="login-page-wrapper">
+                    <div id="login-form-wrapper">
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if message.tags == 'success' %}
+                                <div class="alert alert-success" role="alert">
+                                    <span>{{message}}</span>
+                                </div>
+                            {% elif message.tags == 'error' %}
+                                <div class="alert alert-danger" role="alert">
+                                    <span>{{message}}</span>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="POST" class="login100-form validate-form" action="?next={{ request.META.HTTP_REFERER }}">
+
+
+                        <span class="login100-form-title p-b-59">
+                            Sign Up
+                        </span>
+                        {% csrf_token %}
+                        {{form|crispy}}
+
+
+                        <div class="flex-m w-full p-b-33">
+                            <div class="contact100-form-checkbox">
+                                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                                <label class="label-checkbox100" for="ckb1">
+                                    <span class="txt1">I agree to the
+                                        <a href="#" class="txt2 hov1">Terms of User</a>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <div class="wrap-login100-form-btn">
+                                <div class="btn login100-form-bgbtn"></div>
+
+                                <input class="login100-form-btn" type="submit" value="Sign Up" style="background: rgba(194,28,167,0.8);">
+
+                            </div>
+                            <a href="{% url 'login' %}" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
+                                Sign in
+                                <i class="fa fa-long-arrow-right m-l-5"></i>
+                            </a>
+                        </div>
+
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
+    <script src="{% static 'js/main.js' %}"></script>
+
 {% endblock content %}
-
-<style>
-    .section {
-        background: gray;
-    }
-
-</style>

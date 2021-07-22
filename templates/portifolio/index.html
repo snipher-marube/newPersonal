@@ -639,6 +639,7 @@
 
     -->
     <!--NEWSLETTER-->
+
     <div class="container">
         <div class="newsletter js-rollover" data-radius="50">
             <svg viewBox="0 0 694 549" width="694" height="549">
@@ -652,18 +653,15 @@
                 <p>{{ email }} has been {{ action }}.</p>
             {% endif %}
 
-            {% if form %}
-                <form method="POST" action="{% url 'newsletter' %}" class="newsletter-form">
-                    {% csrf_token %}
-                        <input type="hidden" name="u">
-                        <input type="hidden" name="id">
-                        <input type="email" name="EMAIL" id="email" placeholder="Enter your email">
-                        <button type="submit" class="button" value="Subscribe">Subscribe</button>
-                </form>
-            {% endif %}
+            <form method="GET" action="{% url 'newsletter' %}" class="newsletter-form">
+                {% csrf_token %}
+                <input type="hidden" name="u" value="d08fe605a9149dc54a3c13f44">
+                <input type="hidden" name="id" value="96f67efdeb">
+                <input type="email" name="EMAIL" id="email" placeholder="Enter your email">
+                <button  type="submit" class="button">Subscribe</button>
+            </form>
         </div>
     </div>
-
     <!--====== BLOG PART START ======-->
 
     <section id="blog" class="blog-area pt-125 pb-130">

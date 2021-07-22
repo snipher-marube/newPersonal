@@ -149,7 +149,7 @@ def loginPage(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'Email OR password is incorrect')
+            messages.error(request, 'Email OR password is incorrect please try again')
 
     context = {}
     return render(request, 'portifolio/login.html', context)

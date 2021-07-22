@@ -1,44 +1,104 @@
 {% include 'portifolio/main.html' %}
 {% load static %}
 {% block content %}
-    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 
 
-<section id="login-page-wrapper">
-	<div id="login-form-wrapper">
-		{% if messages %}
-			{% for message in messages %}
-				{% if message.tags == 'success' %}
-					<div class="alert alert-success" role="alert">
-						<span>{{message}}</span>					
-					</div>
-				{% elif message.tags == 'error' %}
-					<div class="alert alert-danger" role="alert">
-						<span>{{message}}</span>					
-					</div>
-				{% endif %}
-			{% endfor %}
-		{% endif %}
 
-		<h3 style="text-align: center">Member Login</h3>
-		<hr>
-		<form method="POST" class="form">
-			{% csrf_token %}
-			<label>Email</label>
-			<input class="form-control" type="email" name="email">
-			<br>
-			<label>Password</label>
-			<input class="form-control" type="password" name="password">
-			<br>
-			<input class="btn btn-primary btn-lg btn-block" type="submit" value="Login">
-		</form>
 
-		<br>
-		<p>Dont have an account? <a href="{% url 'register' %}">Register</a></p>
-		<p>Forgot your password? <a href="{% url 'password_reset' %}">Reset</a></p>
-	</div>
-</section>
+    <section class="ftco-section">
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div class="alert alert-success" role="alert">
+                        <span>{{message}}</span>
+                    </div>
+                {% elif message.tags == 'error' %}
+                    <div class="alert alert-danger" role="alert">
+                        <span>{{message}}</span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-lg-7">
+                    <div class="login-wrap">
+                        <form action="#" method="POST" class="signin-form d-md-flex">
+                            {% csrf_token %}
+                            <div class="half p-4 py-md-5">
+                                <div class="w-100">
+                                    <h3 class="mb-4">Sign In</h3>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label class="label" for="email">Email</label>
+                                    <input type="email" name="email" class="form-control" placeholder="Username" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label" id="password" for="password">Password</label>
+                                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+
+                                    <span id="togglePassword" toggle="#password-field" class="bi bi-eye-slash field-icon toggle-password"></span>
+                                </div>
+                            </div>
+                            <div class="half p-4 py-md-5 bg-primary">
+                                <div class="form-group">
+                                    <input type="submit" class="btn form-control btn-secondary rounded submit px-3" value="Sign me up now">
+
+                                </div>
+                                <div class="form-group d-md-flex">
+                                    <div class="w-50 text-left">
+                                        <label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+                                            <input type="checkbox" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="w-50 text-md-right">
+                                        <a href="{% url 'password_reset' %}">Forgot Password</a>
+                                    </div>
+                                </div>
+                                <p class="w-100 text-center" style="color:white;">&mdash; Or Sign In With &mdash;</p>
+                                <div class="w-100">
+                                    <p class="social-media d-flex justify-content-center">
+                                        <a href="#" class="social-icon d-flex align-items-center justify-contenet-center">
+                                            <span class="fa fa-github"></span>
+                                        </a>
+                                        <a href="#" class="social-icon d-flex align-items-center justify-contenet-center">
+                                            <span class="fa fa-twitter"></span>
+                                        </a>
+                                        <a href="#" class="social-icon d-flex align-items-center justify-contenet-center">
+                                            <span class="fa fa-facebook"></span>
+                                        </a>
+                                        <a href="#" class="social-icon d-flex align-items-center justify-contenet-center">
+                                            <span class="fa fa-google"></span>
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="w-100 text-md-left">
+                                    <p class="w-100 text-center" style="color:white;">You don't have an account?
+                                        <u><a href="{% url 'register' %}" style="color:#0f5a08;">Register Now</a></u>
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'js/app.js' %}"></script>
 
 {% endblock content %}
 
