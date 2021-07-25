@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'portifolio.apps.PortifolioConfig',
+    'newsletters',
     'cloudinary_storage',
     'cloudinary',
 
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'django_filters',
     'crispy_forms',
     'storages',
+    'social_django',
 ]
 
 
@@ -77,6 +79,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -113,6 +117,19 @@ AUTH_PASSWORD_VALIDATORS = [
         #'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     #},
 ]
+
+AUTHENTICATION_BACKENDS = (
+
+    'social_core.backends.github.GithubMemberOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_FACEBOOK_KEY = '318608959945983'
+SOCIAL_AUTH_FACEBOOK_SECRET = '5da1de9a3f703e4ae214ac896518763d'
 
 
 # Internationalization
@@ -166,8 +183,12 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': 'gpP7UebOBTHV99kXyBfPDtW2fmk'
 }
 
+
+
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+FROM_EMAIL = 'snipherdev@gmail.com'
+SENDGRID_API_KEY = os.environ.get('SENDI_GRID_API_key')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

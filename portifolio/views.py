@@ -1,20 +1,21 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.core.mail import EmailMessage
 from django.conf import settings
-from django.template.loader import render_to_string
-from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import logout, login, authenticate
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.core.mail import EmailMessage
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.template.loader import render_to_string
+from django.urls import reverse
+
 from .decorators import *
-
-from .forms import PostForm, CustomUserCreationForm, ProfileForm, UserForm
 from .filters import PostFilter
-
+from .forms import PostForm, CustomUserCreationForm, ProfileForm, UserForm
 from .models import *
+
+
+
 
 # Create your views here.
 
@@ -148,7 +149,7 @@ def loginPage(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'Email OR password is incorrect')
+            messages.error(request, 'Email OR password is incorrect please try again')
 
     context = {}
     return render(request, 'portifolio/login.html', context)
@@ -205,3 +206,7 @@ def updateProfile(request):
 
     context = {'form':form}
     return render(request, 'portifolio/profile_form.html', context)
+
+
+
+

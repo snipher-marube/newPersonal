@@ -1,8 +1,8 @@
 :root{
     --mainColor:#eaeaea;
-    --secondaryColor:#fff;
+    --secondaryColor: #0c0b0b;
 
-    --borderColor:#c1c1c1;
+    --borderColor: #2f2828;
 
     --mainText:black;
     --secondaryText:#4b5156;
@@ -610,5 +610,3 @@ ul.bus__list li {
     list-style-type: none;
     margin-bottom: 5px;
 }
-
-
