@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('portifolio.urls')),
     path('', include('newsletters.urls')),
+    path('social-auth/', include('social_django.urls', namespace='social')),
 
     path('ckeditor/', include('ckeditor_uploader.urls')),
 
