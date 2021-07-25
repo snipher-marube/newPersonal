@@ -120,8 +120,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS = (
 
-    'social_core.backends.github.GithubMemberOAuth2',
-    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.linkedin.LinkedinOAuth2',
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
 
@@ -131,7 +131,14 @@ AUTHENTICATION_BACKENDS = (
 SOCIAL_AUTH_FACEBOOK_KEY = '318608959945983'
 SOCIAL_AUTH_FACEBOOK_SECRET = '5da1de9a3f703e4ae214ac896518763d'
 
+SOCIAL_AUTH_GITHUB_KEY = '6370f7cff9a2d74e91d3'
+SOCIAL_AUTH_GITHUB_SECRET = '544117b8ddfef4669489f9e15a0bc75a34bc9f3d'
 
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '77vuwweasf3kmn'
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'cwWo7ahJtYPjYUzp'
+
+SOCIAL_AUTH_TWITTER_OAUTH1_KEY = 'T5VKlPT1SGbool86tJS4Ld6jT'
+SOCIAL_AUTH_TWITTER_OAUTH1_SECRET = 'RvwUTs0ONxnsCAgZLnv0jqbSI4TojbSmueiXhkTxTGbIPZkIEl'
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 

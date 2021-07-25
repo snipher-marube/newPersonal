@@ -71,17 +71,17 @@
                                 <p class="w-100 text-center" style="color:white;">&mdash; Or Sign In With &mdash;</p>
                                 <div class="w-100">
                                     <p class="social-media d-flex justify-content-center">
-                                        <a href="#" class="social-icon d-flex align-items-center justify-contenet-center">
+                                        <a href="{% url 'social:begin' 'github' %}" class="social-icon d-flex align-items-center justify-contenet-center">
                                             <span class="fa fa-github"></span>
                                         </a>
-                                        <a href="#" class="social-icon d-flex align-items-center justify-contenet-center">
+                                        <a href="{% url 'social:begin' 'twitter-oauth1' %}" class="social-icon d-flex align-items-center justify-contenet-center">
                                             <span class="fa fa-twitter"></span>
                                         </a>
                                         <a href="{% url "social:begin" "facebook" %}" class="social-icon d-flex align-items-center justify-contenet-center">
                                             <span class="fa fa-facebook"></span>
                                         </a>
-                                        <a href="#" class="social-icon d-flex align-items-center justify-contenet-center">
-                                            <span class="fa fa-google"></span>
+                                        <a href="{% url 'social:begin' 'linkedin-oauth2' %}" class="social-icon d-flex align-items-center justify-contenet-center">
+                                            <span class="fa fa-linkedin"></span>
                                         </a>
                                     </p>
                                 </div>
